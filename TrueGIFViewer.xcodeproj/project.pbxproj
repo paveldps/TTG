@@ -8,14 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		0AC2446F25BC6619003F9EB8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC2446E25BC6619003F9EB8 /* AppDelegate.m */; };
-		0AC2447225BC6619003F9EB8 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC2447125BC6619003F9EB8 /* SceneDelegate.m */; };
-		0AC2447525BC6619003F9EB8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC2447425BC6619003F9EB8 /* ViewController.m */; };
-		0AC2447825BC6619003F9EB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AC2447625BC6619003F9EB8 /* Main.storyboard */; };
 		0AC2447A25BC661B003F9EB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AC2447925BC661B003F9EB8 /* Assets.xcassets */; };
 		0AC2447D25BC661B003F9EB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AC2447B25BC661B003F9EB8 /* LaunchScreen.storyboard */; };
 		0AC2448025BC661B003F9EB8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC2447F25BC661B003F9EB8 /* main.m */; };
-		0ADB997A25BC6A8F005BFF3B /* GifDecompositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADB997925BC6A8F005BFF3B /* GifDecompositionViewController.m */; };
 		0ADB998525BC7035005BFF3B /* GifDecompositionPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADB998425BC7035005BFF3B /* GifDecompositionPresenter.m */; };
+		0ADB998C25BC74D7005BFF3B /* GifDecompositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADB998B25BC74D7005BFF3B /* GifDecompositionViewController.m */; };
 		B45D91C2C7425FE34080EC97 /* Pods_TrueGIFViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30A8D2A70CA8BF14FE8577E2 /* Pods_TrueGIFViewer.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,20 +20,15 @@
 		0AC2446A25BC6619003F9EB8 /* TrueGIFViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrueGIFViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AC2446D25BC6619003F9EB8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0AC2446E25BC6619003F9EB8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0AC2447025BC6619003F9EB8 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		0AC2447125BC6619003F9EB8 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		0AC2447325BC6619003F9EB8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0AC2447425BC6619003F9EB8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		0AC2447725BC6619003F9EB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0AC2447925BC661B003F9EB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AC2447C25BC661B003F9EB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AC2447E25BC661B003F9EB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AC2447F25BC661B003F9EB8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		0ADB997925BC6A8F005BFF3B /* GifDecompositionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GifDecompositionViewController.m; sourceTree = "<group>"; };
-		0ADB997E25BC6AD5005BFF3B /* GifDecompositionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GifDecompositionViewController.h; sourceTree = "<group>"; };
 		0ADB998025BC6BFD005BFF3B /* GifDecompositionProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GifDecompositionProtocols.h; sourceTree = "<group>"; };
 		0ADB998225BC6F51005BFF3B /* GifDecompositionPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GifDecompositionPresenter.h; sourceTree = "<group>"; };
 		0ADB998425BC7035005BFF3B /* GifDecompositionPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GifDecompositionPresenter.m; sourceTree = "<group>"; };
+		0ADB998A25BC74D7005BFF3B /* GifDecompositionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GifDecompositionViewController.h; sourceTree = "<group>"; };
+		0ADB998B25BC74D7005BFF3B /* GifDecompositionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GifDecompositionViewController.m; sourceTree = "<group>"; };
 		30A8D2A70CA8BF14FE8577E2 /* Pods_TrueGIFViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrueGIFViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E3D8DCDB46DDBBB89304E56 /* Pods-TrueGIFViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrueGIFViewer.debug.xcconfig"; path = "Target Support Files/Pods-TrueGIFViewer/Pods-TrueGIFViewer.debug.xcconfig"; sourceTree = "<group>"; };
 		C3FE171C925755E28411B33B /* Pods-TrueGIFViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrueGIFViewer.release.xcconfig"; path = "Target Support Files/Pods-TrueGIFViewer/Pods-TrueGIFViewer.release.xcconfig"; sourceTree = "<group>"; };
@@ -78,11 +70,6 @@
 				0ADB997725BC6790005BFF3B /* Gif Decomposition */,
 				0AC2446D25BC6619003F9EB8 /* AppDelegate.h */,
 				0AC2446E25BC6619003F9EB8 /* AppDelegate.m */,
-				0AC2447025BC6619003F9EB8 /* SceneDelegate.h */,
-				0AC2447125BC6619003F9EB8 /* SceneDelegate.m */,
-				0AC2447325BC6619003F9EB8 /* ViewController.h */,
-				0AC2447425BC6619003F9EB8 /* ViewController.m */,
-				0AC2447625BC6619003F9EB8 /* Main.storyboard */,
 				0AC2447925BC661B003F9EB8 /* Assets.xcassets */,
 				0AC2447B25BC661B003F9EB8 /* LaunchScreen.storyboard */,
 				0AC2447E25BC661B003F9EB8 /* Info.plist */,
@@ -95,8 +82,8 @@
 			isa = PBXGroup;
 			children = (
 				0ADB998025BC6BFD005BFF3B /* GifDecompositionProtocols.h */,
-				0ADB997E25BC6AD5005BFF3B /* GifDecompositionViewController.h */,
-				0ADB997925BC6A8F005BFF3B /* GifDecompositionViewController.m */,
+				0ADB998A25BC74D7005BFF3B /* GifDecompositionViewController.h */,
+				0ADB998B25BC74D7005BFF3B /* GifDecompositionViewController.m */,
 				0ADB998225BC6F51005BFF3B /* GifDecompositionPresenter.h */,
 				0ADB998425BC7035005BFF3B /* GifDecompositionPresenter.m */,
 			);
@@ -179,7 +166,6 @@
 			files = (
 				0AC2447D25BC661B003F9EB8 /* LaunchScreen.storyboard in Resources */,
 				0AC2447A25BC661B003F9EB8 /* Assets.xcassets in Resources */,
-				0AC2447825BC6619003F9EB8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,26 +201,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AC2447525BC6619003F9EB8 /* ViewController.m in Sources */,
 				0AC2446F25BC6619003F9EB8 /* AppDelegate.m in Sources */,
 				0AC2448025BC661B003F9EB8 /* main.m in Sources */,
 				0ADB998525BC7035005BFF3B /* GifDecompositionPresenter.m in Sources */,
-				0ADB997A25BC6A8F005BFF3B /* GifDecompositionViewController.m in Sources */,
-				0AC2447225BC6619003F9EB8 /* SceneDelegate.m in Sources */,
+				0ADB998C25BC74D7005BFF3B /* GifDecompositionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		0AC2447625BC6619003F9EB8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0AC2447725BC6619003F9EB8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0AC2447B25BC661B003F9EB8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -12,7 +12,7 @@
 
 @interface GifDecompositionPresenter: NSObject<GifDecompositionPresentable>
 
-@property(nonatomic, weak) id<GifDecompositionViewable> view;
+@property(weak, nonatomic) id<GifDecompositionViewable> view;
 
 @end
 

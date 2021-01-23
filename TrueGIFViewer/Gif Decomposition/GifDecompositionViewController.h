@@ -5,15 +5,11 @@
 //  Created by Pavel Daineka on 1/23/21.
 //
 
-#ifndef GifDecompositionViewController_h
-#define GifDecompositionViewController_h
-
+#import <UIKit/UIKit.h>
 #import "GifDecompositionProtocols.h"
 
-@interface GifDecompositionViewController: UIViewController<GifDecompositionViewable>
+@interface GifDecompositionViewController : UIViewController<GifDecompositionViewable>
 
-@property(nonatomic) id<GifDecompositionPresentable> presenter;
+@property(strong, nonatomic) id<GifDecompositionPresentable> presenter;
 
 @end
-
-#endif /* GifDecompositionViewController_h */

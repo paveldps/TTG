@@ -9,6 +9,12 @@
 
 @implementation GifDecompositionViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor blueColor];
+}
+
 -(void)setIsLoaded {
     NSLog(@"View: is loaded");
 }
