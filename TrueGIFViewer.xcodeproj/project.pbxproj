@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		0AC2448025BC661B003F9EB8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC2447F25BC661B003F9EB8 /* main.m */; };
 		0ADB998525BC7035005BFF3B /* GifDecompositionPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADB998425BC7035005BFF3B /* GifDecompositionPresenter.m */; };
 		0ADB998C25BC74D7005BFF3B /* GifDecompositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADB998B25BC74D7005BFF3B /* GifDecompositionViewController.m */; };
+		0ADB99B825BCCAD0005BFF3B /* GifCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADB99B725BCCAD0005BFF3B /* GifCollectionViewCell.m */; };
 		B45D91C2C7425FE34080EC97 /* Pods_TrueGIFViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30A8D2A70CA8BF14FE8577E2 /* Pods_TrueGIFViewer.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,8 @@
 		0ADB998425BC7035005BFF3B /* GifDecompositionPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GifDecompositionPresenter.m; sourceTree = "<group>"; };
 		0ADB998A25BC74D7005BFF3B /* GifDecompositionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GifDecompositionViewController.h; sourceTree = "<group>"; };
 		0ADB998B25BC74D7005BFF3B /* GifDecompositionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GifDecompositionViewController.m; sourceTree = "<group>"; };
+		0ADB99B625BCCAD0005BFF3B /* GifCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GifCollectionViewCell.h; sourceTree = "<group>"; };
+		0ADB99B725BCCAD0005BFF3B /* GifCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GifCollectionViewCell.m; sourceTree = "<group>"; };
 		30A8D2A70CA8BF14FE8577E2 /* Pods_TrueGIFViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrueGIFViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E3D8DCDB46DDBBB89304E56 /* Pods-TrueGIFViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrueGIFViewer.debug.xcconfig"; path = "Target Support Files/Pods-TrueGIFViewer/Pods-TrueGIFViewer.debug.xcconfig"; sourceTree = "<group>"; };
 		C3FE171C925755E28411B33B /* Pods-TrueGIFViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrueGIFViewer.release.xcconfig"; path = "Target Support Files/Pods-TrueGIFViewer/Pods-TrueGIFViewer.release.xcconfig"; sourceTree = "<group>"; };
@@ -82,6 +85,8 @@
 			isa = PBXGroup;
 			children = (
 				0ADB998025BC6BFD005BFF3B /* GifDecompositionProtocols.h */,
+				0ADB99B625BCCAD0005BFF3B /* GifCollectionViewCell.h */,
+				0ADB99B725BCCAD0005BFF3B /* GifCollectionViewCell.m */,
 				0ADB998A25BC74D7005BFF3B /* GifDecompositionViewController.h */,
 				0ADB998B25BC74D7005BFF3B /* GifDecompositionViewController.m */,
 				0ADB998225BC6F51005BFF3B /* GifDecompositionPresenter.h */,
@@ -118,6 +123,7 @@
 				0AC2446625BC6619003F9EB8 /* Sources */,
 				0AC2446725BC6619003F9EB8 /* Frameworks */,
 				0AC2446825BC6619003F9EB8 /* Resources */,
+				703CA3F32C5340F719EA48BD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -172,6 +178,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		703CA3F32C5340F719EA48BD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TrueGIFViewer/Pods-TrueGIFViewer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TrueGIFViewer/Pods-TrueGIFViewer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TrueGIFViewer/Pods-TrueGIFViewer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E72E2A2F15CBD27000244E5D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -202,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AC2446F25BC6619003F9EB8 /* AppDelegate.m in Sources */,
+				0ADB99B825BCCAD0005BFF3B /* GifCollectionViewCell.m in Sources */,
 				0AC2448025BC661B003F9EB8 /* main.m in Sources */,
 				0ADB998525BC7035005BFF3B /* GifDecompositionPresenter.m in Sources */,
 				0ADB998C25BC74D7005BFF3B /* GifDecompositionViewController.m in Sources */,

@@ -23,7 +23,7 @@
 
 -(void)setIsLoaded;
 -(void)setIsLoadingProgress;
--(void)setItems: (NSArray<UIImage*>*) items;
+-(void)setItems: (NSArray<NSURL*>*) items;
 
 @end
 

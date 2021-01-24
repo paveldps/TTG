@@ -8,6 +8,7 @@
 #import "AppDelegate.h"
 #import "GifDecompositionProtocols.h"
 #import "GifDecompositionViewController.h"
+#import "GifDecompositionPresenter.h"
 
 @interface AppDelegate ()
 
@@ -20,8 +21,14 @@
     // Override point for customization after application launch.
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = [[GifDecompositionViewController alloc] init];
     
+    GifDecompositionViewController *view = [[GifDecompositionViewController alloc] init];
+    GifDecompositionPresenter *presenter = [[GifDecompositionPresenter alloc] init];
+    
+    view.presenter = presenter;
+    presenter.view = view;
+    
+    [self.window setRootViewController: view];
     [self.window makeKeyAndVisible];
     
     return YES;
