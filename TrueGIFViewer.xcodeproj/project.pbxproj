@@ -14,6 +14,7 @@
 		0ADB998525BC7035005BFF3B /* GifDecompositionPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADB998425BC7035005BFF3B /* GifDecompositionPresenter.m */; };
 		0ADB998C25BC74D7005BFF3B /* GifDecompositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADB998B25BC74D7005BFF3B /* GifDecompositionViewController.m */; };
 		0ADB99B825BCCAD0005BFF3B /* GifCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADB99B725BCCAD0005BFF3B /* GifCollectionViewCell.m */; };
+		0ADB99C025BE1A1E005BFF3B /* GifSearchItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADB99BF25BE1A1E005BFF3B /* GifSearchItem.m */; };
 		B45D91C2C7425FE34080EC97 /* Pods_TrueGIFViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30A8D2A70CA8BF14FE8577E2 /* Pods_TrueGIFViewer.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,8 @@
 		0ADB998B25BC74D7005BFF3B /* GifDecompositionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GifDecompositionViewController.m; sourceTree = "<group>"; };
 		0ADB99B625BCCAD0005BFF3B /* GifCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GifCollectionViewCell.h; sourceTree = "<group>"; };
 		0ADB99B725BCCAD0005BFF3B /* GifCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GifCollectionViewCell.m; sourceTree = "<group>"; };
+		0ADB99BE25BE19F9005BFF3B /* GifSearchItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GifSearchItem.h; sourceTree = "<group>"; };
+		0ADB99BF25BE1A1E005BFF3B /* GifSearchItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GifSearchItem.m; sourceTree = "<group>"; };
 		30A8D2A70CA8BF14FE8577E2 /* Pods_TrueGIFViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrueGIFViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E3D8DCDB46DDBBB89304E56 /* Pods-TrueGIFViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrueGIFViewer.debug.xcconfig"; path = "Target Support Files/Pods-TrueGIFViewer/Pods-TrueGIFViewer.debug.xcconfig"; sourceTree = "<group>"; };
 		C3FE171C925755E28411B33B /* Pods-TrueGIFViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrueGIFViewer.release.xcconfig"; path = "Target Support Files/Pods-TrueGIFViewer/Pods-TrueGIFViewer.release.xcconfig"; sourceTree = "<group>"; };
@@ -70,6 +73,7 @@
 		0AC2446C25BC6619003F9EB8 /* TrueGIFViewer */ = {
 			isa = PBXGroup;
 			children = (
+				0ADB99C225BE1F1C005BFF3B /* Network Entities */,
 				0ADB997725BC6790005BFF3B /* Gif Decomposition */,
 				0AC2446D25BC6619003F9EB8 /* AppDelegate.h */,
 				0AC2446E25BC6619003F9EB8 /* AppDelegate.m */,
@@ -84,15 +88,32 @@
 		0ADB997725BC6790005BFF3B /* Gif Decomposition */ = {
 			isa = PBXGroup;
 			children = (
+				0ADB99C425BE1F29005BFF3B /* Items */,
 				0ADB998025BC6BFD005BFF3B /* GifDecompositionProtocols.h */,
-				0ADB99B625BCCAD0005BFF3B /* GifCollectionViewCell.h */,
-				0ADB99B725BCCAD0005BFF3B /* GifCollectionViewCell.m */,
 				0ADB998A25BC74D7005BFF3B /* GifDecompositionViewController.h */,
 				0ADB998B25BC74D7005BFF3B /* GifDecompositionViewController.m */,
 				0ADB998225BC6F51005BFF3B /* GifDecompositionPresenter.h */,
 				0ADB998425BC7035005BFF3B /* GifDecompositionPresenter.m */,
 			);
 			path = "Gif Decomposition";
+			sourceTree = "<group>";
+		};
+		0ADB99C225BE1F1C005BFF3B /* Network Entities */ = {
+			isa = PBXGroup;
+			children = (
+				0ADB99BE25BE19F9005BFF3B /* GifSearchItem.h */,
+				0ADB99BF25BE1A1E005BFF3B /* GifSearchItem.m */,
+			);
+			path = "Network Entities";
+			sourceTree = "<group>";
+		};
+		0ADB99C425BE1F29005BFF3B /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				0ADB99B625BCCAD0005BFF3B /* GifCollectionViewCell.h */,
+				0ADB99B725BCCAD0005BFF3B /* GifCollectionViewCell.m */,
+			);
+			path = Items;
 			sourceTree = "<group>";
 		};
 		1E132E7E7FF7D43643F58CF7 /* Frameworks */ = {
@@ -229,6 +250,7 @@
 				0AC2448025BC661B003F9EB8 /* main.m in Sources */,
 				0ADB998525BC7035005BFF3B /* GifDecompositionPresenter.m in Sources */,
 				0ADB998C25BC74D7005BFF3B /* GifDecompositionViewController.m in Sources */,
+				0ADB99C025BE1A1E005BFF3B /* GifSearchItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

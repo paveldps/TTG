@@ -10,6 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "GifSearchItem.h"
 
 // MARK: - Presenter
 @protocol GifDecompositionPresentable
@@ -23,7 +24,7 @@
 
 -(void)setIsLoaded;
 -(void)setIsLoadingProgress;
--(void)setItems: (NSArray<NSURL*>*) items;
+-(void)setItems: (NSArray<GifSearchItem*>*) items;
 
 @end
 

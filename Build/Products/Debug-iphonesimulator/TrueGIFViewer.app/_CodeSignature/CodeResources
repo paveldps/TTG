@@ -16,6 +16,18 @@
 		<data>
 		r3Cgymbt7fPyk+O+eOleOiRn4iI=
 		</data>
+		<key>Frameworks/AFNetworking.framework/AFNetworking</key>
+		<data>
+		uhm4IshxB2729nTnnNKZlb9NXhQ=
+		</data>
+		<key>Frameworks/AFNetworking.framework/Info.plist</key>
+		<data>
+		d4z0l1wN0tH8GZbHgXeYWuXeGGo=
+		</data>
+		<key>Frameworks/AFNetworking.framework/_CodeSignature/CodeResources</key>
+		<data>
+		gF465iXgsWOOsGf9/lDvPSB5Qsw=
+		</data>
 		<key>Frameworks/SDWebImage.framework/Info.plist</key>
 		<data>
 		ak+SHRG8gyUWNQ8+cZ5yWg0oCBM=
@@ -58,6 +70,27 @@
 			<key>hash2</key>
 			<data>
 			mPobTZmWS7UCEiTG8muOW2U48EShGO+9A2xkVRrgWl8=
+			</data>
+		</dict>
+		<key>Frameworks/AFNetworking.framework/AFNetworking</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			dqiAson0/E5HoW37tEvgz86wvAYvXWOtRqma4U1HxVM=
+			</data>
+		</dict>
+		<key>Frameworks/AFNetworking.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Z/HCzSZq+uhqYzrZ1NCL3DHCvu1BOqslwhNP2eTdS3s=
+			</data>
+		</dict>
+		<key>Frameworks/AFNetworking.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			yt/BMB4zaFocW7lWVoJPRlR+c+QGBjHgDsUadE8gT4o=
 			</data>
 		</dict>
 		<key>Frameworks/SDWebImage.framework/Info.plist</key>

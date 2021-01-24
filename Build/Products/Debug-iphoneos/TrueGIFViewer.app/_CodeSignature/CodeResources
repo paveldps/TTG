@@ -6,7 +6,7 @@
 	<dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
-		qXPwMWpGDCyIwjmUePRefFRLeHw=
+		ztP7eYvEoJ1isiXfelYmjnls1mw=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -14,7 +14,19 @@
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
-		oDZ3jBP4R6dgnTZjroATltU2KhQ=
+		73gUQTxIJGz1h62zZSLvA7yNyf8=
+		</data>
+		<key>Frameworks/AFNetworking.framework/AFNetworking</key>
+		<data>
+		KsULPvW6kUN9/qf5mHTPt0fu1ko=
+		</data>
+		<key>Frameworks/AFNetworking.framework/Info.plist</key>
+		<data>
+		MgI9dHNpHXk7HTz9DaRIRthgIDs=
+		</data>
+		<key>Frameworks/AFNetworking.framework/_CodeSignature/CodeResources</key>
+		<data>
+		mEqtIhSLXRdHP/NhTbFMuACM7eQ=
 		</data>
 		<key>Frameworks/SDWebImage.framework/Info.plist</key>
 		<data>
@@ -22,7 +34,7 @@
 		</data>
 		<key>Frameworks/SDWebImage.framework/SDWebImage</key>
 		<data>
-		QVgTqbTdGcZ0gHT0QIDkAunQD3I=
+		99+fkSLLe016pGLD7ZSlAvxIJQg=
 		</data>
 		<key>Frameworks/SDWebImage.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -47,7 +59,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ffJ/H5Pp3KjbVhfZLptmNXOXL7oSXKrl6RnINujYVyc=
+			WKh35Vcylrl/mEKIzV7AWhkGbzqe5GMyhBXImtSYeF8=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/Info.plist</key>
@@ -61,7 +73,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			GLAQDuLDQC16o/LD+KZSGVukhTHwwbJzKFKbAQfz+lc=
+			NejROXaxVPU2YBIRizyncWhzdnVMhzgF7Q7jd8NYCDI=
+			</data>
+		</dict>
+		<key>Frameworks/AFNetworking.framework/AFNetworking</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			5F7jvm5Cg2gYgOaH7eNaf6lS8gN6v9BHGjHEc85PCbc=
+			</data>
+		</dict>
+		<key>Frameworks/AFNetworking.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			e0BhoPZm3e/Aa1/Uw34ketPlljGcXI2m4hXyOxJwnWw=
+			</data>
+		</dict>
+		<key>Frameworks/AFNetworking.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			DBn/RB5Zs8dKVuuGZB8V6wydybIyVhL7qQhOml3YwaM=
 			</data>
 		</dict>
 		<key>Frameworks/SDWebImage.framework/Info.plist</key>
@@ -75,7 +108,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			HxnDIYStsi+zisi6ud9dDaUGVIM3DkW+EDlh6ZJyLCs=
+			zS6rapVKY7Ibr+CgZq9clJ88NZ4qCWcSZoyUWPwBhTo=
 			</data>
 		</dict>
 		<key>Frameworks/SDWebImage.framework/_CodeSignature/CodeResources</key>

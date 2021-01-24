@@ -12,7 +12,7 @@
 @interface GifDecompositionViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UITextFieldDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UITextField *searchField;
-@property (nonatomic, strong) NSArray<NSURL*>* urlItems;
+@property (nonatomic, strong) NSArray<GifSearchItem*>* dataSourceItems;
 @end
 
 @implementation GifDecompositionViewController
@@ -146,12 +146,13 @@
     });
 }
 
--(void)setItems: (NSArray<NSURL*>*) items {
+-(void)setItems: (NSArray<GifSearchItem*>*) items {
     
-    self.urlItems = items;
+    self.dataSourceItems = items;
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.collectionView reloadData];
+        [self.collectionView setContentOffset: CGPointZero];
     });
 }
 
@@ -170,7 +171,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.urlItems.count;
+    return self.dataSourceItems.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -180,7 +181,7 @@
     
     cell.backgroundColor = UIColor.magentaColor;
     
-    NSURL *url = self.urlItems[indexPath.item];
+    NSURL *url = self.dataSourceItems[indexPath.item].originalUrl;
     
     [cell updateURL: url estimatedSize: estimatedSize];
     
