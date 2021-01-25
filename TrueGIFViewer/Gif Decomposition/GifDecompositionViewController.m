@@ -11,9 +11,10 @@
 
 @interface GifDecompositionViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
-@property (nonatomic, strong) UISearchBar *searchBar;
 @property (nonatomic, strong) UIView *searchBarContainer;
+@property (nonatomic, strong) UIActivityIndicatorView *activityView;
 @property (nonatomic, strong) NSArray<GifSearchItem*>* dataSourceItems;
+@property (nonatomic, strong) UILabel *noItemsLabel;
 @end
 
 @implementation GifDecompositionViewController
@@ -23,12 +24,19 @@
     
     [self configureCollectionView];
     [self configureSearchBar];
+    [self configureActivityIndicator];
+    [self configureNoItemsUI];
+    
+    [self.view setBackgroundColor:UIColor.whiteColor];
+    [self.noItemsLabel setHidden: TRUE];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear: animated];
     
     [self configureKeyboardNotification];
+    
+    self.navigationItem.title = @"Test Task";
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -53,14 +61,14 @@
     UIViewAnimationCurve animationCurve = [[[notification userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];
     
     CGFloat keyboardShift = self.view.safeAreaInsets.bottom - keyboardSize.height;
-    CGFloat collectionBottomContentInset = fabs(keyboardShift) + CGRectGetHeight(self.searchBar.bounds) + 24;
+    CGFloat collectionBottomContentInset = fabs(keyboardShift) + 60;
     
     [UIView animateWithDuration:duration
                           delay:0.0
                         options:((UIViewAnimationOptions)animationCurve << 16)
                      animations:^{
             self.searchBarContainer.transform = CGAffineTransformMakeTranslation(0, keyboardShift);
-            self.collectionView.contentInset = UIEdgeInsetsMake(12, 0, collectionBottomContentInset, 0);
+            self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, collectionBottomContentInset, 0);
             self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, fabs(keyboardShift), 0);
     } completion: nil];
 }
@@ -74,11 +82,39 @@
                         options:((UIViewAnimationOptions)animationCurve << 16)
                      animations:^{
         self.searchBarContainer.transform = CGAffineTransformIdentity;
-        self.collectionView.contentInset = UIEdgeInsetsMake(12, 0, 12, 0);
-        self.collectionView.scrollIndicatorInsets = UIEdgeInsetsZero;
+        self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, 60, 0);
+        self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 60, 0);
     } completion: nil];
 }
 
+-(void)configureNoItemsUI {
+    UILabel *label = [UILabel new];
+    
+    [label setTranslatesAutoresizingMaskIntoConstraints: FALSE];
+    
+    [self.view addSubview: label];
+    
+    [label.centerYAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor constant: 40].active = TRUE;
+    [label.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = TRUE;
+    [label setText: @"No Items"];
+    
+    self.noItemsLabel = label;
+}
+
+-(void)configureActivityIndicator {
+    UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleMedium];
+    
+    [activityView setTranslatesAutoresizingMaskIntoConstraints: FALSE];
+    [activityView setHidesWhenStopped: TRUE];
+    [activityView stopAnimating];
+    
+    [self.view addSubview: activityView];
+    
+    [activityView.centerYAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor constant: 40].active = TRUE;
+    [activityView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = TRUE;
+    
+    self.activityView = activityView;
+}
 
 -(void)configureCollectionView {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -91,8 +127,8 @@
     collectionView.translatesAutoresizingMaskIntoConstraints = FALSE;
     collectionView.delegate = self;
     collectionView.dataSource = self;
-    collectionView.backgroundColor = UIColor.orangeColor;
-    collectionView.contentInset = UIEdgeInsetsMake(12, 0, 12, 0);
+    collectionView.backgroundColor = UIColor.whiteColor;
+    collectionView.contentInset = UIEdgeInsetsMake(0, 0, 60, 0);
     collectionView.scrollIndicatorInsets = UIEdgeInsetsZero;
     
     [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"UICollectionViewCell"];
@@ -142,29 +178,35 @@
     
     searchBar.delegate = self;
     
-    self.searchBar = searchBar;
     self.searchBarContainer = searchBarContainer;
 }
 
 -(void)setIsLoaded {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        self.view.backgroundColor = UIColor.greenColor;
-    });
+    [self.collectionView setUserInteractionEnabled: TRUE];
+    [self.activityView stopAnimating];
 }
 
 -(void)setIsLoadingProgress {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        self.view.backgroundColor = UIColor.redColor;
-    });
+    [self.activityView startAnimating];
+    [self.collectionView setUserInteractionEnabled: FALSE];
+    
+    self.noItemsLabel.hidden = TRUE;
 }
 
--(void)setItems: (NSArray<GifSearchItem*>*) items {
+-(void)showItems: (NSArray<GifSearchItem*>*) items {
     self.dataSourceItems = items;
+    [self.collectionView reloadData];
+    [self.collectionView setContentOffset: CGPointMake(0, -self.view.safeAreaInsets.top)];
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.collectionView reloadData];
-        [self.collectionView setContentOffset: CGPointZero];
-    });
+    self.collectionView.hidden = FALSE;
+    self.noItemsLabel.hidden = TRUE;
+}
+
+-(void)showNoItemsWith:(NSString *)search {
+    self.collectionView.hidden = TRUE;
+    self.noItemsLabel.hidden = FALSE;
+    
+    [self.noItemsLabel setText: [NSString stringWithFormat:@"No items found for `%@`", search]];
 }
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {

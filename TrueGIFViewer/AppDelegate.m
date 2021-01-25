@@ -28,7 +28,9 @@
     view.presenter = presenter;
     presenter.view = view;
     
-    [self.window setRootViewController: view];
+    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:view];
+    
+    [self.window setRootViewController: navigation];
     [self.window makeKeyAndVisible];
     
     return YES;

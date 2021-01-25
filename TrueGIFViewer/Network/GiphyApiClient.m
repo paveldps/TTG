@@ -12,8 +12,8 @@ static NSString * const kGyphyApiKey = @"kzb0iww1CJeIAeBp6ep9Ihsj3uTRO7TN";
 
 @implementation GiphyApiClient
 
-- (void)searchWithString: (NSString *_Nonnull) string
-                     GIF: (void (^_Nonnull)(NSArray<GifSearchItem*>*_Nonnull, NSError *_Nullable)) result {
+- (void)searchWithString: (NSString *) string
+                     GIF: (void (^)(NSArray<GifSearchItem*>*, NSError *)) result {
     
     NSURL *url = [self searchURL:string];
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -23,7 +23,6 @@ static NSString * const kGyphyApiKey = @"kzb0iww1CJeIAeBp6ep9Ihsj3uTRO7TN";
     [[session dataTaskWithURL:url
             completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         __strong typeof(self) strongSelf = weakSelf;
-        
         if (error != nil) {
             result(@[], error);
             return;
@@ -50,14 +49,13 @@ static NSString * const kGyphyApiKey = @"kzb0iww1CJeIAeBp6ep9Ihsj3uTRO7TN";
 }
 
 -(void) decodeFromData: (NSData*) rawData
-                   GIF: (void (^_Nonnull)(NSArray<GifSearchItem*>*_Nonnull, NSError *_Nullable)) result {
+                   GIF: (void (^)(NSArray<GifSearchItem*>*, NSError *)) result {
     NSError *parseError = nil;
     NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:rawData
                                                                        options:0
                                                                          error:&parseError];
     if (parseError != nil) {
-        result(@[], parseError);
-        return;
+        return result(@[], parseError);
     }
     
     NSArray *imagesRawData = responseDictionary[@"data"];

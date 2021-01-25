@@ -39,6 +39,10 @@
     [imageView.trailingAnchor constraintEqualToAnchor: self.contentView.trailingAnchor].active = TRUE;
     [imageView.bottomAnchor constraintEqualToAnchor: self.contentView.bottomAnchor].active = TRUE;
     
+    imageView.layer.borderColor = [UIColor colorWithWhite: 151.0/255.0 alpha:1.0].CGColor;
+    imageView.layer.borderWidth = 0.5f;
+    imageView.backgroundColor = UIColor.lightGrayColor;
+    
     self.imageView = imageView;
 }
 

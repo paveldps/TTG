@@ -12,8 +12,8 @@
 #import "GifSearchItem.h"
 
 @protocol ApiClient
-- (void)searchWithString: (NSString *_Nonnull) string
-                     GIF:(void (^_Nonnull)(NSArray<GifSearchItem*> *_Nonnull, NSError *_Nullable)) result;
+- (void)searchWithString: (NSString *) string
+                     GIF:(void (^)(NSArray<GifSearchItem*> *, NSError *)) result;
 @end
 
 @interface GiphyApiClient : NSObject <ApiClient>

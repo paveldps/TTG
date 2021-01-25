@@ -24,7 +24,8 @@
 
 -(void)setIsLoaded;
 -(void)setIsLoadingProgress;
--(void)setItems: (NSArray<GifSearchItem*>*) items;
+-(void)showItems: (NSArray<GifSearchItem*>*) items;
+-(void)showNoItemsWith: (NSString*) search;
 
 @end
 

@@ -49,11 +49,20 @@ static double const kSearchMinLength = 2;
 
 // MARK: - Private
 - (void)queryGIFData: (NSString*) string {
+    [self.view setIsLoadingProgress];
+    
     __weak typeof(self) weakSelf = self;
     [self.apiClient searchWithString:string GIF:^(NSArray<GifSearchItem *>* items, NSError *error) {
         __strong typeof(self) strongSelf = weakSelf;
         if (error == nil) {
-            [strongSelf.view setItems: items];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [strongSelf.view setIsLoaded];
+                if (0 < [items count]) {
+                    [strongSelf.view showItems: items];
+                } else {
+                    [strongSelf.view showNoItemsWith: string];
+                }
+            });
         } else {
             NSLog(@"%@", [error localizedDescription]);
         }
