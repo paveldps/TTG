@@ -18,7 +18,7 @@
 		</data>
 		<key>Frameworks/AFNetworking.framework/AFNetworking</key>
 		<data>
-		KsULPvW6kUN9/qf5mHTPt0fu1ko=
+		7jRYeOcE5M9f3uEcx6UKNxC54M4=
 		</data>
 		<key>Frameworks/AFNetworking.framework/Info.plist</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Frameworks/SDWebImage.framework/SDWebImage</key>
 		<data>
-		99+fkSLLe016pGLD7ZSlAvxIJQg=
+		he1qEodrhN1uLzbHKo8AGKZePsc=
 		</data>
 		<key>Frameworks/SDWebImage.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -80,7 +80,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			5F7jvm5Cg2gYgOaH7eNaf6lS8gN6v9BHGjHEc85PCbc=
+			K5Kk5olo+1pH18JyMcJHrTzZMrqALikmS4tO3R+be8E=
 			</data>
 		</dict>
 		<key>Frameworks/AFNetworking.framework/Info.plist</key>
@@ -108,7 +108,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			zS6rapVKY7Ibr+CgZq9clJ88NZ4qCWcSZoyUWPwBhTo=
+			gN6viKujWTsRDbBAkAJq2yWo74pjP1duvftCa16qKOs=
 			</data>
 		</dict>
 		<key>Frameworks/SDWebImage.framework/_CodeSignature/CodeResources</key>
