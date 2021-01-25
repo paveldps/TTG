@@ -6,4 +6,6 @@ dependencies: \
   /Users/paveldaineka/WORK/NINESIX/TrueGIFViewer/TrueGIFViewer/Gif\ Decomposition/GifDecompositionProtocols.h \
   /Users/paveldaineka/WORK/NINESIX/TrueGIFViewer/TrueGIFViewer/Network/Entities/GifSearchItem.h \
   /Users/paveldaineka/WORK/NINESIX/TrueGIFViewer/TrueGIFViewer/Gif\ Decomposition/GifDecompositionViewController.h \
-  /Users/paveldaineka/WORK/NINESIX/TrueGIFViewer/TrueGIFViewer/Gif\ Decomposition/GifDecompositionPresenter.h
+  /Users/paveldaineka/WORK/NINESIX/TrueGIFViewer/TrueGIFViewer/Gif\ Decomposition/GifDecompositionPresenter.h \
+  /Users/paveldaineka/WORK/NINESIX/TrueGIFViewer/TrueGIFViewer/Network/ApiClient.h \
+  /Users/paveldaineka/WORK/NINESIX/TrueGIFViewer/TrueGIFViewer/Network/GiphyApiClient.h

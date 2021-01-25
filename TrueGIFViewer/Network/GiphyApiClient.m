@@ -13,11 +13,11 @@ static NSInteger const kPageSize = 50;
 
 @implementation GiphyApiClient
 
-- (void)searchWithString: (NSString *) string
-                    page: (NSInteger) page
-                     GIF: (void (^)(NSArray<GifSearchItem*>*, NSError *)) result {
-    
-    NSURL *url = [self searchURL:string page: page];
+#pragma mark - ApiClient
+- (void)searchWithString:(NSString *)string
+                    page:(NSInteger)page
+                     GIF:(void (^)(NSArray<GifSearchItem*>*, NSError *)) result {
+    NSURL *url = [self searchURL:string page:page];
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
     
@@ -26,8 +26,7 @@ static NSInteger const kPageSize = 50;
             completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         __strong typeof(self) strongSelf = weakSelf;
         if (error != nil) {
-            result(@[], error);
-            return;
+            return result(@[], error);
         }
         
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
@@ -40,21 +39,24 @@ static NSInteger const kPageSize = 50;
     }] resume];
 }
 
--(NSURL*) searchURL: (NSString*) string page: (NSInteger) page {
+#pragma mark - Private
+
+-(NSURL*)searchURL:(NSString*)string
+              page:(NSInteger)page {
     NSURLComponents *components = [NSURLComponents componentsWithString: @"https://api.giphy.com/v1/gifs/search"];
-    [components setQueryItems: @[
-         [NSURLQueryItem queryItemWithName:@"api_key" value: kGyphyApiKey],
-         [NSURLQueryItem queryItemWithName:@"q" value: string],
-         [NSURLQueryItem queryItemWithName:@"limit" value: @(kPageSize).stringValue],
-         [NSURLQueryItem queryItemWithName:@"offset" value: @(kPageSize * page).stringValue]]
+    [components setQueryItems:@[
+         [NSURLQueryItem queryItemWithName:@"api_key" value:kGyphyApiKey],
+         [NSURLQueryItem queryItemWithName:@"q" value:string],
+         [NSURLQueryItem queryItemWithName:@"limit" value:@(kPageSize).stringValue],
+         [NSURLQueryItem queryItemWithName:@"offset" value:@(kPageSize * page).stringValue]]
      
     ];
     
     return [components URL];
 }
 
--(void) decodeFromData: (NSData*) rawData
-                   GIF: (void (^)(NSArray<GifSearchItem*>*, NSError *)) result {
+-(void)decodeFromData:(NSData*)rawData
+                  GIF:(void (^)(NSArray<GifSearchItem*>*, NSError *))result {
     NSError *parseError = nil;
     NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:rawData
                                                                        options:0
@@ -64,10 +66,13 @@ static NSInteger const kPageSize = 50;
     }
     
     NSArray *imagesRawData = responseDictionary[@"data"];
-    NSMutableArray *decoded = [NSMutableArray arrayWithCapacity:imagesRawData.count];
+    if (!imagesRawData) {
+        return result(@[], nil);
+    }
     
+    NSMutableArray *decoded = [NSMutableArray arrayWithCapacity:imagesRawData.count];
     [imagesRawData enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        decoded[idx] = [[GifSearchItem alloc] initWithDictionary:obj[@"images"]];
+        decoded[idx] = [[GifSearchItem alloc] initWithOriginalUrl:obj[@"images"][@"original"][@"url"]];
     }];
     
     result(decoded, nil);

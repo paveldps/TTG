@@ -12,7 +12,7 @@
 #import <UIKit/UIKit.h>
 #import "GifSearchItem.h"
 
-// MARK: - Presenter
+#pragma mark - Presenter
 @protocol GifDecompositionPresentable
 
 -(void)setSearch: (NSString*) string;
@@ -20,7 +20,7 @@
 
 @end
 
-// MARK: - View
+#pragma mark - View
 @protocol GifDecompositionViewable
 
 -(void)setIsLoaded;
@@ -30,6 +30,5 @@
 -(void)showNoItemsWith: (NSString*) search;
 
 @end
-
 
 #endif /* GifDecompositionProtocols_h */

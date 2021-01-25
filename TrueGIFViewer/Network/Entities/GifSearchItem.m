@@ -10,9 +10,9 @@
 
 @implementation GifSearchItem
 
--(instancetype)initWithDictionary:(NSDictionary *)dictionary {
+-(instancetype)initWithOriginalUrl:(NSURL *)url {
     if (self = [super init]) {
-        _originalUrl = dictionary[@"original"][@"url"];
+        _originalUrl = url;
     }
     return self;
 }

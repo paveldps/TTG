@@ -8,6 +8,8 @@
 #import "GifCollectionViewCell.h"
 #import "SDWebImage.h"
 
+static NSUInteger const kDecodeBufferMaxSize = 100 * 1024 * 1024;
+
 @interface GifCollectionViewCell ()
 
 @property (nonatomic, strong) SDAnimatedImageView* imageView;
@@ -25,14 +27,11 @@
 }
 
 -(void)configureUI {
-    // maxBufferSize
-    self.contentView.backgroundColor = UIColor.cyanColor;
-    
     SDAnimatedImageView* imageView = [SDAnimatedImageView new];
     [self.contentView addSubview: imageView];
     
-    [imageView setTranslatesAutoresizingMaskIntoConstraints: FALSE];
-    [imageView setMaxBufferSize: 100 * 1024 * 1024];
+    imageView.translatesAutoresizingMaskIntoConstraints = FALSE;
+    imageView.maxBufferSize = kDecodeBufferMaxSize;
     
     [imageView.topAnchor constraintEqualToAnchor: self.contentView.topAnchor].active = TRUE;
     [imageView.leadingAnchor constraintEqualToAnchor: self.contentView.leadingAnchor].active = TRUE;

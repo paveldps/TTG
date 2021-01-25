@@ -22,6 +22,7 @@
 /* Begin PBXFileReference section */
 		0AA04B6925BEAAA900EDCBEC /* GiphyApiClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiphyApiClient.h; sourceTree = "<group>"; };
 		0AA04B6B25BEAC8E00EDCBEC /* GiphyApiClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiphyApiClient.m; sourceTree = "<group>"; };
+		0AA04B7925BF1D2600EDCBEC /* ApiClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApiClient.h; sourceTree = "<group>"; };
 		0AC2446A25BC6619003F9EB8 /* TrueGIFViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrueGIFViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AC2446D25BC6619003F9EB8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0AC2446E25BC6619003F9EB8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -101,10 +102,10 @@
 			isa = PBXGroup;
 			children = (
 				0ADB998025BC6BFD005BFF3B /* GifDecompositionProtocols.h */,
-				0ADB998A25BC74D7005BFF3B /* GifDecompositionViewController.h */,
-				0ADB998B25BC74D7005BFF3B /* GifDecompositionViewController.m */,
 				0ADB998225BC6F51005BFF3B /* GifDecompositionPresenter.h */,
 				0ADB998425BC7035005BFF3B /* GifDecompositionPresenter.m */,
+				0ADB998A25BC74D7005BFF3B /* GifDecompositionViewController.h */,
+				0ADB998B25BC74D7005BFF3B /* GifDecompositionViewController.m */,
 				0ADB99C425BE1F29005BFF3B /* Items */,
 			);
 			path = "Gif Decomposition";
@@ -113,6 +114,7 @@
 		0ADB99C225BE1F1C005BFF3B /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				0AA04B7925BF1D2600EDCBEC /* ApiClient.h */,
 				0AA04B6925BEAAA900EDCBEC /* GiphyApiClient.h */,
 				0AA04B6B25BEAC8E00EDCBEC /* GiphyApiClient.m */,
 				0AA04B6F25BEC07F00EDCBEC /* Entities */,

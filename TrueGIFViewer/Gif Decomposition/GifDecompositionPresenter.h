@@ -9,10 +9,14 @@
 #define GifDecompositionViewPresenter_h
 
 #import "GifDecompositionProtocols.h"
+#import "ApiClient.h"
 
 @interface GifDecompositionPresenter: NSObject<GifDecompositionPresentable>
 
-@property(weak, nonatomic) id<GifDecompositionViewable> view;
+@property (nonatomic, weak, readonly) id<GifDecompositionViewable> view;
+
+-(instancetype)initWithApiClient: (id<ApiClient>) apiClient
+                            view: (id<GifDecompositionViewable>) view;
 
 @end
 

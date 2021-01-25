@@ -9,24 +9,24 @@
 #import "GifDecompositionProtocols.h"
 #import "GifDecompositionViewController.h"
 #import "GifDecompositionPresenter.h"
+#import "GiphyApiClient.h"
+#import "ApiClient.h"
 
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
-@synthesize window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    id<ApiClient> apiClient = [GiphyApiClient new];
+    
     GifDecompositionViewController *view = [[GifDecompositionViewController alloc] init];
-    GifDecompositionPresenter *presenter = [[GifDecompositionPresenter alloc] init];
+    GifDecompositionPresenter *presenter = [[GifDecompositionPresenter alloc] initWithApiClient:apiClient view:view];
     
     view.presenter = presenter;
-    presenter.view = view;
     
     UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:view];
     

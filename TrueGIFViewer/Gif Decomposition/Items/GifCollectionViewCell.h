@@ -7,12 +7,8 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface GifCollectionViewCell : UICollectionViewCell
 
--(void)updateURL: (NSURL*) url estimatedSize: (CGSize) size;
+-(void)updateURL:(NSURL*)url estimatedSize:(CGSize)size;
 
 @end
-
-NS_ASSUME_NONNULL_END

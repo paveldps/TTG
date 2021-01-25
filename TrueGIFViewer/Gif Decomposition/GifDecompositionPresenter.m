@@ -18,25 +18,28 @@ static double const kSearchMinLength = 2;
 @property (nonatomic, strong) NSString* searchString;
 @property (nonatomic, strong) NSTimer* timer;
 @property (nonatomic, strong) NSArray<GifSearchItem*>* dataSourceItems;
-
-@property NSInteger currentPage;
-@property BOOL pageInProgress;
+@property (assign) NSInteger currentPage;
+@property (assign) BOOL pageInProgress;
 
 @end
 
 @implementation GifDecompositionPresenter
 
--(instancetype)init {
+-(instancetype)initWithApiClient: (id<ApiClient>) apiClient
+                            view: (id<GifDecompositionViewable>) view {
     if (self = [super init]) {
-        self.apiClient = [GiphyApiClient new];
-        self.currentPage = 0;
+        _apiClient = apiClient;
+        _currentPage = 0;
+        _view = view;
     }
     return self;
 }
 
-- (void)setSearch:(NSString *)string {
+#pragma mark - GifDecompositionPresentable
+- (void)setSearch: (NSString *) string {
     [self.timer invalidate];
-    [self setSearchString: string];
+    
+    self.searchString = string;
     
     if (string.length < kSearchMinLength) {
         return;
@@ -52,16 +55,12 @@ static double const kSearchMinLength = 2;
 }
 
 - (void)loadNextPage {
-    NSInteger nextPage = self.currentPage + 1;
-    
     [self.timer invalidate];
-    
-    [self loadNexGIFData:self.searchString page:nextPage];
-    
+    [self loadNexGIFData:self.searchString page: self.currentPage + 1];
 }
 
 
-// MARK: - Private
+#pragma mark - Private
 - (void)queryGIFData: (NSString*) string {
     [self.view setIsLoadingProgress];
     

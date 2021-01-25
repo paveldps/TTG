@@ -10,11 +10,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GifSearchItem : NSObject
+@interface GifSearchItem: NSObject
 
--(instancetype)initWithDictionary:(NSDictionary *)dictionary;
+-(instancetype)initWithOriginalUrl:(NSURL *)url;
 
-@property (nonatomic, strong) NSURL* originalUrl;
+@property (nonatomic, strong, readonly) NSURL* originalUrl;
 
 @end
 

@@ -10,6 +10,6 @@
 
 @interface GifDecompositionViewController : UIViewController<GifDecompositionViewable>
 
-@property(strong, nonatomic) id<GifDecompositionPresentable> presenter;
+@property (nonatomic, strong) id<GifDecompositionPresentable> presenter;
 
 @end

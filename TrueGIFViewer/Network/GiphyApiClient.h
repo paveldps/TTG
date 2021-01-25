@@ -8,16 +8,9 @@
 #ifndef GifApiClient_h
 #define GifApiClient_h
 
-#import <Foundation/Foundation.h>
-#import "GifSearchItem.h"
+#import "ApiClient.h"
 
-@protocol ApiClient
-- (void)searchWithString: (NSString *) string
-                    page: (NSInteger) page
-                     GIF:(void (^)(NSArray<GifSearchItem*> *, NSError *)) result;
-@end
-
-@interface GiphyApiClient : NSObject <ApiClient>
+@interface GiphyApiClient: NSObject <ApiClient>
 
 @end
 
