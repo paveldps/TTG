@@ -6,7 +6,7 @@
 	<dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
-		ztP7eYvEoJ1isiXfelYmjnls1mw=
+		j/CKOGDPSG09E7nKtEa329lT5I8=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -14,11 +14,11 @@
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
-		73gUQTxIJGz1h62zZSLvA7yNyf8=
+		i9nadEbBzyTcXMFemB0JV1dThno=
 		</data>
 		<key>Frameworks/AFNetworking.framework/AFNetworking</key>
 		<data>
-		7jRYeOcE5M9f3uEcx6UKNxC54M4=
+		hEWAg2LDmoU62PvDSTukk4e/VJA=
 		</data>
 		<key>Frameworks/AFNetworking.framework/Info.plist</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Frameworks/SDWebImage.framework/SDWebImage</key>
 		<data>
-		he1qEodrhN1uLzbHKo8AGKZePsc=
+		GafmxFl1f2Q9ZXlHVBZtmcJ/EnE=
 		</data>
 		<key>Frameworks/SDWebImage.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -59,7 +59,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			WKh35Vcylrl/mEKIzV7AWhkGbzqe5GMyhBXImtSYeF8=
+			OqNk1+YlYIs1Qlb/+KKao8KvlYrc/K/CQLeuT7hPPK0=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/Info.plist</key>
@@ -73,14 +73,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			NejROXaxVPU2YBIRizyncWhzdnVMhzgF7Q7jd8NYCDI=
+			vk45J17ctaE+Wa4IWAxpZgIAG4fq6Igk6MlFxJS/G5k=
 			</data>
 		</dict>
 		<key>Frameworks/AFNetworking.framework/AFNetworking</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			K5Kk5olo+1pH18JyMcJHrTzZMrqALikmS4tO3R+be8E=
+			K+2nlnIpdVnYtSKFpN+INvaSDbJZs4MeaVe/ZSWg5kI=
 			</data>
 		</dict>
 		<key>Frameworks/AFNetworking.framework/Info.plist</key>
@@ -108,7 +108,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			gN6viKujWTsRDbBAkAJq2yWo74pjP1duvftCa16qKOs=
+			Uh8lmLzNi/aZHrdx7ShC9Ko30wURN7qzVZSLUhZI7Ws=
 			</data>
 		</dict>
 		<key>Frameworks/SDWebImage.framework/_CodeSignature/CodeResources</key>

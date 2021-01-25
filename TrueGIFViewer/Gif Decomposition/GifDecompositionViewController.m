@@ -9,9 +9,10 @@
 #import "GifCollectionViewCell.h"
 #import "SDWebImage.h"
 
-@interface GifDecompositionViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UITextFieldDelegate>
+@interface GifDecompositionViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
-@property (nonatomic, strong) UITextField *searchField;
+@property (nonatomic, strong) UISearchBar *searchBar;
+@property (nonatomic, strong) UIView *searchBarContainer;
 @property (nonatomic, strong) NSArray<GifSearchItem*>* dataSourceItems;
 @end
 
@@ -20,10 +21,8 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor blueColor];
-    
     [self configureCollectionView];
-    [self configureView];
+    [self configureSearchBar];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -50,30 +49,34 @@
 
 - (void)keyboardWillShow:(NSNotification *)notification {
     CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    NSTimeInterval duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    UIViewAnimationCurve animationCurve = [[[notification userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];
     
-    NSNumber *duration = [[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey];
-
-    [UIView animateWithDuration:duration.doubleValue animations:^{
-        
-        CGFloat keyboardShift = self.view.safeAreaInsets.bottom - keyboardSize.height;
-        CGFloat collectionBottomContentInset = fabs(keyboardShift) + self.searchField.bounds.size.height + 24;
-        
-        self.searchField.transform = CGAffineTransformMakeTranslation(0, keyboardShift);
-        
-        self.collectionView.contentInset = UIEdgeInsetsMake(12, 0, collectionBottomContentInset, 0);
-        self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, fabs(keyboardShift), 0);
-    }];
+    CGFloat keyboardShift = self.view.safeAreaInsets.bottom - keyboardSize.height;
+    CGFloat collectionBottomContentInset = fabs(keyboardShift) + CGRectGetHeight(self.searchBar.bounds) + 24;
+    
+    [UIView animateWithDuration:duration
+                          delay:0.0
+                        options:((UIViewAnimationOptions)animationCurve << 16)
+                     animations:^{
+            self.searchBarContainer.transform = CGAffineTransformMakeTranslation(0, keyboardShift);
+            self.collectionView.contentInset = UIEdgeInsetsMake(12, 0, collectionBottomContentInset, 0);
+            self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, fabs(keyboardShift), 0);
+    } completion: nil];
 }
 
 -(void)keyboardWillHide:(NSNotification *)notification {
-    NSNumber *duration = [[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+    NSTimeInterval duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    UIViewAnimationCurve animationCurve = [[[notification userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];
     
-    [UIView animateWithDuration:duration.doubleValue animations:^{
-        self.searchField.transform = CGAffineTransformIdentity;
-        
+    [UIView animateWithDuration:duration
+                          delay:0.0
+                        options:((UIViewAnimationOptions)animationCurve << 16)
+                     animations:^{
+        self.searchBarContainer.transform = CGAffineTransformIdentity;
         self.collectionView.contentInset = UIEdgeInsetsMake(12, 0, 12, 0);
         self.collectionView.scrollIndicatorInsets = UIEdgeInsetsZero;
-    }];
+    } completion: nil];
 }
 
 
@@ -106,32 +109,41 @@
     self.collectionView = collectionView;
 }
 
--(void)configureView {
-    UITextField *searchField = [[UITextField alloc] init];
+-(void)configureSearchBar {
+    UIView *searchBarContainer = [UIView new];
+    UISearchBar *searchBar = [UISearchBar new];
     
-    [self.view addSubview: searchField];
+    [searchBarContainer addSubview: searchBar];
+    [self.view addSubview:searchBarContainer];
     
-    [searchField setTextAlignment: NSTextAlignmentCenter];
-    [searchField setReturnKeyType: UIReturnKeyDone];
-    [searchField setAutocorrectionType: UITextAutocorrectionTypeNo];
-    [searchField setTranslatesAutoresizingMaskIntoConstraints: FALSE];
-    [searchField setBackgroundColor:UIColor.lightGrayColor];
+    [searchBarContainer setBackgroundColor:UIColor.whiteColor];
+    [searchBarContainer setTranslatesAutoresizingMaskIntoConstraints: FALSE];
     
-    [searchField.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor constant: -12].active = TRUE;
-    [searchField.heightAnchor constraintEqualToConstant: 60].active = TRUE;
+    [searchBar setReturnKeyType: UIReturnKeyDone];
+    [searchBar setAutocorrectionType: UITextAutocorrectionTypeNo];
+    [searchBar setTranslatesAutoresizingMaskIntoConstraints: FALSE];
+    [searchBar setBackgroundColor: UIColor.lightGrayColor];
+    [searchBar setTintColor: UIColor.blackColor];
+    [searchBar setPlaceholder: @"Search"];
+    [searchBar setBackgroundImage: [UIImage new]];
+    [searchBar setTranslucent: FALSE];
+    [searchBar setEnablesReturnKeyAutomatically: FALSE];
     
-    [searchField.leftAnchor constraintEqualToAnchor: self.view.leftAnchor constant: 20].active = TRUE;
-    [searchField.rightAnchor constraintEqualToAnchor: self.view.rightAnchor constant: -20].active = TRUE;
+    [searchBarContainer.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor constant:-60].active = TRUE;
+    [searchBarContainer.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = TRUE;
     
-    searchField.delegate = self;
+    [searchBarContainer.leftAnchor constraintEqualToAnchor: self.view.leftAnchor].active = TRUE;
+    [searchBarContainer.rightAnchor constraintEqualToAnchor: self.view.rightAnchor].active = TRUE;
     
-    self.searchField = searchField;
-}
-
--(void)markedTest {
-    [self.presenter setSearch: self.searchField.text];
+    [searchBar.topAnchor constraintEqualToAnchor: searchBarContainer.topAnchor].active = TRUE;
+    [searchBar.leftAnchor constraintEqualToAnchor: searchBarContainer.leftAnchor].active = TRUE;
+    [searchBar.rightAnchor constraintEqualToAnchor: searchBarContainer.rightAnchor].active = TRUE;
+    [searchBar.heightAnchor constraintEqualToConstant: 60].active = TRUE;
     
-    [self.view endEditing: TRUE];
+    searchBar.delegate = self;
+    
+    self.searchBar = searchBar;
+    self.searchBarContainer = searchBarContainer;
 }
 
 -(void)setIsLoaded {
@@ -147,7 +159,6 @@
 }
 
 -(void)setItems: (NSArray<GifSearchItem*>*) items {
-    
     self.dataSourceItems = items;
     
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -156,18 +167,12 @@
     });
 }
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    NSString* search = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    
-    [self.presenter setSearch: search];
-    
-    return TRUE;
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    [self.presenter setSearch: searchText];
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
-    
-    return TRUE;
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
