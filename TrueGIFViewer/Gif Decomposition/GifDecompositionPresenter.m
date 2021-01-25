@@ -17,6 +17,10 @@ static double const kSearchMinLength = 2;
 @property (nonatomic, strong) id<ApiClient> apiClient;
 @property (nonatomic, strong) NSString* searchString;
 @property (nonatomic, strong) NSTimer* timer;
+@property (nonatomic, strong) NSArray<GifSearchItem*>* dataSourceItems;
+
+@property NSInteger currentPage;
+@property BOOL pageInProgress;
 
 @end
 
@@ -25,6 +29,7 @@ static double const kSearchMinLength = 2;
 -(instancetype)init {
     if (self = [super init]) {
         self.apiClient = [GiphyApiClient new];
+        self.currentPage = 0;
     }
     return self;
 }
@@ -46,13 +51,24 @@ static double const kSearchMinLength = 2;
     }];
 }
 
+- (void)loadNextPage {
+    NSInteger nextPage = self.currentPage + 1;
+    
+    [self.timer invalidate];
+    
+    [self loadNexGIFData:self.searchString page:nextPage];
+    
+}
+
 
 // MARK: - Private
 - (void)queryGIFData: (NSString*) string {
     [self.view setIsLoadingProgress];
     
     __weak typeof(self) weakSelf = self;
-    [self.apiClient searchWithString:string GIF:^(NSArray<GifSearchItem *>* items, NSError *error) {
+    [self.apiClient searchWithString:string
+                                page:0
+                                 GIF:^(NSArray<GifSearchItem *>* items, NSError *error) {
         __strong typeof(self) strongSelf = weakSelf;
         if (error == nil) {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -66,6 +82,33 @@ static double const kSearchMinLength = 2;
         } else {
             NSLog(@"%@", [error localizedDescription]);
         }
+    }];
+}
+
+- (void)loadNexGIFData: (NSString*) string page: (NSInteger) page {
+    if (self.pageInProgress) {
+        return;
+    }
+    
+    self.pageInProgress = TRUE;
+    
+    __weak typeof(self) weakSelf = self;
+    [self.apiClient searchWithString:string
+                                page:page
+                                 GIF:^(NSArray<GifSearchItem *>* items, NSError *error) {
+        __strong typeof(self) strongSelf = weakSelf;
+        if (error == nil) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (0 < [items count]) {
+                    strongSelf.currentPage = page;
+                    [strongSelf.view addNextItems: items];
+                }
+            });
+        } else {
+            NSLog(@"%@", [error localizedDescription]);
+        }
+        
+        strongSelf.pageInProgress = FALSE;
     }];
 }
 

@@ -16,6 +16,7 @@
 @protocol GifDecompositionPresentable
 
 -(void)setSearch: (NSString*) string;
+-(void)loadNextPage;
 
 @end
 
@@ -25,6 +26,7 @@
 -(void)setIsLoaded;
 -(void)setIsLoadingProgress;
 -(void)showItems: (NSArray<GifSearchItem*>*) items;
+-(void)addNextItems: (NSArray<GifSearchItem*>*) items;
 -(void)showNoItemsWith: (NSString*) search;
 
 @end

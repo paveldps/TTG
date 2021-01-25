@@ -13,6 +13,7 @@
 
 @protocol ApiClient
 - (void)searchWithString: (NSString *) string
+                    page: (NSInteger) page
                      GIF:(void (^)(NSArray<GifSearchItem*> *, NSError *)) result;
 @end
 

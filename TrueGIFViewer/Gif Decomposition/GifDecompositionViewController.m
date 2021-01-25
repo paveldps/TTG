@@ -209,6 +209,11 @@
     [self.noItemsLabel setText: [NSString stringWithFormat:@"No items found for `%@`", search]];
 }
 
+- (void)addNextItems:(NSArray<GifSearchItem *> *)items {
+    self.dataSourceItems = [self.dataSourceItems arrayByAddingObjectsFromArray:items];
+    [self.collectionView reloadData];
+}
+
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     [self.presenter setSearch: searchText];
 }
@@ -237,6 +242,12 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(collectionView.bounds.size.width / 2, collectionView.bounds.size.width / 2);
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (scrollView.contentSize.height - (scrollView.contentOffset.y) < 1000) {
+        [self.presenter loadNextPage];
+    }
 }
 
 @end

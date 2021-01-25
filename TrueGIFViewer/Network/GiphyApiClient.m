@@ -9,13 +9,15 @@
 #import "GiphyApiClient.h"
 
 static NSString * const kGyphyApiKey = @"kzb0iww1CJeIAeBp6ep9Ihsj3uTRO7TN";
+static NSInteger const kPageSize = 50;
 
 @implementation GiphyApiClient
 
 - (void)searchWithString: (NSString *) string
+                    page: (NSInteger) page
                      GIF: (void (^)(NSArray<GifSearchItem*>*, NSError *)) result {
     
-    NSURL *url = [self searchURL:string];
+    NSURL *url = [self searchURL:string page: page];
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
     
@@ -38,11 +40,14 @@ static NSString * const kGyphyApiKey = @"kzb0iww1CJeIAeBp6ep9Ihsj3uTRO7TN";
     }] resume];
 }
 
--(NSURL*) searchURL: (NSString*) string {
+-(NSURL*) searchURL: (NSString*) string page: (NSInteger) page {
     NSURLComponents *components = [NSURLComponents componentsWithString: @"https://api.giphy.com/v1/gifs/search"];
     [components setQueryItems: @[
          [NSURLQueryItem queryItemWithName:@"api_key" value: kGyphyApiKey],
-         [NSURLQueryItem queryItemWithName:@"q" value: string]]
+         [NSURLQueryItem queryItemWithName:@"q" value: string],
+         [NSURLQueryItem queryItemWithName:@"limit" value: @(kPageSize).stringValue],
+         [NSURLQueryItem queryItemWithName:@"offset" value: @(kPageSize * page).stringValue]]
+     
     ];
     
     return [components URL];
