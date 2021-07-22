@@ -7,7 +7,7 @@
 
 #import "GifCollectionViewCell.h"
 #import "SDWebImage.h"
-
+x
 static NSUInteger const kDecodeBufferMaxSize = 100 * 1024 * 1024;
 
 @interface GifCollectionViewCell ()
